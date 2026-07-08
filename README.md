@@ -9,6 +9,17 @@ This repository contains the complete ROS 2 Jazzy software stack for the custom-
 - `navigation`: Nav2 stack configurations, costmaps, and planners for autonomous point-to-point navigation.
 
 # Demo Videos
+
+### Robot 3D description Demo
+
+
+https://github.com/user-attachments/assets/76dab123-2bda-49ca-97a3-a1222f391f22
+
+
+
+
+
+
 ### Mapping Demo
 
 
