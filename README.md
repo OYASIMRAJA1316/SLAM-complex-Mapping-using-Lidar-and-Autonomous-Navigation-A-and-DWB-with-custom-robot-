@@ -16,10 +16,12 @@ This repository contains the complete ROS 2 Jazzy software stack for the Alpha R
 
 ## 1. Setup & Installation
 ```bash
-# Clone this repository into your ROS 2 workspace
+# 1. Create a new ROS 2 workspace
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws/src
-git clone <your-repo-url> .
+
+# 2. Clone this repository inside the src folder
+git clone https://github.com/OYASIMRAJA1316/SLAM-complex-Mapping-using-Lidar-and-Autonomous-Navigation-A-and-DWB-with-custom-robot-.git alpha_robot_stack
 
 # Install dependencies using rosdep
 cd ~/ros2_ws
@@ -49,7 +51,7 @@ ros2 launch slam slam.launch.py sim:=true
 
 To save the map:
 ```bash
-ros2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/src/navigation/maps/my_new_map
+ros2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/alpha_robot_stack/navigation/maps/my_new_map
 ```
 
 ## 4. Navigation (Nav2)
