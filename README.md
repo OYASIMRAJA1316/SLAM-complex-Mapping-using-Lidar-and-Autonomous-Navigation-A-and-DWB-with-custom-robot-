@@ -1,6 +1,6 @@
 # Alpha Robot Simulation & Navigation Stack
 
-This repository contains the complete ROS 2 Jazzy software stack for the Alpha Robot. It includes the robot description (URDF), Gazebo Harmonic simulations, SLAM (mapping), and Nav2 autonomous navigation.
+This repository contains the complete ROS 2 Jazzy software stack for the custom-built Alpha Robot. In this project, I have fully created my own custom robot using custom 3D meshes and URDF files, designed a custom Gazebo Harmonic warehouse world to spawn the robot in, and developed tailored RViz configurations and launch files specifically for SLAM mapping and autonomous Nav2 navigation.
 
 ## Repository Structure
 - `alpha_description_new`: URDF, meshes, and robot state publishers.
