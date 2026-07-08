@@ -87,3 +87,15 @@ Once you have saved a map, you can use the Navigation stack to autonomously move
    ros2 launch navigation rviz_navigation.launch.py sim:=true
    ```
 *(Use the "2D Pose Estimate" tool in the top bar of RViz to tell the robot where it is on the map. Then, use the "2D Nav Goal" tool to command the robot to drive!)*
+
+#### Phase 5: Advanced Parameter Tuning (Nav2)
+To achieve more complex and specific navigation behaviors (such as tuning dynamic obstacle avoidance, altering path planning characteristics, or modifying the robot's velocity profiles), you can edit the Navigation parameters.
+
+* **Target File:** `/home/oyasim_raja/ros2_ws/src/src/navigation/config/nav2_params.yaml`
+* **What you can tune:**
+  * **Costmap Inflation Radius:** Adjust how far the robot stays away from walls.
+  * **DWB Controller:** Modify `max_vel_x`, `max_vel_theta`, and acceleration limits to make the Alpha robot drive faster or slower.
+  * **Path Planning:** Tweak the Smac/NavFn parameters to change how the robot calculates its global path through the warehouse.
+  * **AMCL:** Adjust the particle filter parameters (`alpha1` to `alpha5` for the `OmniMotionModel`) if the robot struggles to localize while strafing.
+
+*(Playing with these parameters will directly impact how aggressively or safely the robot navigates complex scenarios!)*
