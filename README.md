@@ -91,7 +91,7 @@ Once you have saved a map, you can use the Navigation stack to autonomously move
 #### Phase 5: Advanced Parameter Tuning (Nav2)
 To achieve more complex and specific navigation behaviors (such as tuning dynamic obstacle avoidance, altering path planning characteristics, or modifying the robot's velocity profiles), you can edit the Navigation parameters.
 
-* **Target File:** `/home/oyasim_raja/ros2_ws/src/src/navigation/config/nav2_params.yaml`
+* **Target File:** `navigation/config/nav2_params.yaml` (inside this repository)
 * **What you can tune:**
   * **Costmap Inflation Radius:** Adjust how far the robot stays away from walls.
   * **DWB Controller:** Modify `max_vel_x`, `max_vel_theta`, and acceleration limits to make the Alpha robot drive faster or slower.
