@@ -8,6 +8,13 @@ This repository contains the complete ROS 2 Jazzy software stack for the custom-
 - `slam`: SLAM Toolbox integration for 2D map generation.
 - `navigation`: Nav2 stack configurations, costmaps, and planners for autonomous point-to-point navigation.
 
+## Repository Structure
+#Mapping Demo
+
+
+Uploading SLAM in gazebo with Custom BIG robot (2) (1) (1).mp4…
+
+
 ## Prerequisites
 - **ROS 2 Jazzy**
 - **Gazebo Harmonic** (`ros-jazzy-ros-gz`)
