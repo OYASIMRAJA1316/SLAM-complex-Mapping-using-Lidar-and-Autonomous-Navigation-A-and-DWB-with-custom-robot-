@@ -1,0 +1,13 @@
+# ROS 2 ignore
+build/
+install/
+log/
+*.so
+*.pyc
+__pycache__/
+*.swp
+*~
+.vscode/
+
+# Ignore old readme directory
+/readme/

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="alpha" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find alpha_description_new)/urdf/materials.xacro"/>
+    <xacro:include filename="$(find alpha_description_new)/urdf/inertial_matrix.xacro" />
+    <xacro:include filename="$(find alpha_description_new)/urdf/imu.urdf.xacro"/>
+    <xacro:include filename="$(find alpha_description_new)/urdf/lidar.urdf.xacro"/>
+    <xacro:include filename="$(find alpha_description_new)/urdf/screen.urdf.xacro"/>
+    <xacro:include filename="$(find alpha_description_new)/urdf/depth_camera.urdf.xacro"/>
+    <xacro:include filename="$(find alpha_description_new)/urdf/alpha_car.urdf.xacro"/>
+
+</robot>
