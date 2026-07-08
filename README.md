@@ -12,7 +12,11 @@ This repository contains the complete ROS 2 Jazzy software stack for the custom-
 #Mapping Demo
 
 
-Uploading SLAM in gazebo with Custom BIG robot (2) (1) (1).mp4…
+https://github.com/user-attachments/assets/c176a1ce-d326-43d0-adbb-b17d9784e069
+
+
+
+
 
 
 ## Prerequisites
