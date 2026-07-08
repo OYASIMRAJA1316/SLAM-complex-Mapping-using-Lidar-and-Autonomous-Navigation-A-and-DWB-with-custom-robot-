@@ -10,24 +10,24 @@ At a macro level, the system is separated into three distinct layers: the **Phys
 
 ```mermaid
 graph TD
-    subgraph Hardware Layer [Gazebo Harmonic]
+    subgraph Hardware_Layer [Gazebo Harmonic]
         GZ[Gazebo Physics Engine]
         L[LiDAR Sensor]
         O[Odometry/Motor Encoders]
     end
 
-    subgraph Bridge [ROS-GZ Bridge]
-        B1[/scan]
-        B2[/odom]
-        B3[/cmd_vel]
+    subgraph Bridge_Layer [ROS-GZ Bridge]
+        B1["/scan"]
+        B2["/odom"]
+        B3["/cmd_vel"]
     end
 
-    subgraph State Layer [Robot State]
+    subgraph State_Layer [Robot State]
         RSP[Robot State Publisher]
         TF[(TF2 Transform Tree)]
     end
 
-    subgraph Algorithmic Layer [ROS 2 Algorithms]
+    subgraph Algorithmic_Layer [ROS 2 Algorithms]
         SLAM[SLAM Toolbox]
         AMCL[AMCL Localization]
         NAV2[Nav2 Planners & Controllers]
@@ -130,15 +130,15 @@ Costmaps translate the physical world into a 2D grid of "costs" (0 = free space,
 
 ```mermaid
 graph LR
-    subgraph Global Costmap
+    subgraph Global_Costmap [Global Costmap]
         Map[Static Map] --> Inflate1[Inflation Layer]
     end
-    subgraph Local Costmap
+    subgraph Local_Costmap [Local Costmap]
         Scan[Live LiDAR Scans] --> Voxel[Obstacle Layer]
         Voxel --> Inflate2[Inflation Layer]
     end
-    Global Costmap --> GlobalPlanner[Global Planner]
-    Local Costmap --> LocalPlanner[Local Controller]
+    Global_Costmap --> GlobalPlanner[Global Planner]
+    Local_Costmap --> LocalPlanner[Local Controller]
 ```
 
 *   **Global Costmap**: Static. It inflates the walls massively to create a smooth "cost gradient" pushing the robot to drive strictly in the center of aisles.
