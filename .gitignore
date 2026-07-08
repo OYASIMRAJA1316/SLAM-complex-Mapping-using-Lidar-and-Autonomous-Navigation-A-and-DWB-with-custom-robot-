@@ -11,3 +11,8 @@ __pycache__/
 
 # Ignore old readme directory
 /readme/
+build/
+install/
+log/
+jetauto.urdf
+test_params.yaml
