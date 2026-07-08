@@ -16,12 +16,9 @@ This repository contains the complete ROS 2 Jazzy software stack for the custom-
 
 ## 1. Setup & Installation
 ```bash
-# 1. Create a new ROS 2 workspace
-mkdir -p ~/ros2_ws
+# 1. Clone this repository to act as your ROS 2 workspace
+git clone https://github.com/OYASIMRAJA1316/SLAM-complex-Mapping-using-Lidar-and-Autonomous-Navigation-A-and-DWB-with-custom-robot-.git ros2_ws
 cd ~/ros2_ws
-
-# 2. Clone this repository as the 'src' folder
-git clone https://github.com/OYASIMRAJA1316/SLAM-complex-Mapping-using-Lidar-and-Autonomous-Navigation-A-and-DWB-with-custom-robot-.git src
 
 # Install dependencies using rosdep
 cd ~/ros2_ws
