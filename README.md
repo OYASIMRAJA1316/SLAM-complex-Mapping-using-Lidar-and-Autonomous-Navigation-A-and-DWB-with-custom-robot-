@@ -34,31 +34,42 @@ colcon build --symlink-install --packages-select alpha_description_new gazebo_si
 source install/setup.bash
 ```
 
-## 2. Gazebo Simulation
-Launch the Alpha robot inside the simulated warehouse environment in Gazebo Harmonic.
-```bash
-ros2 launch gazebo_simulations gazebo.launch.py sim:=true
-```
+## Execution Flow for Simulation
 
-## 3. Mapping (SLAM)
-To create a new map of the environment, launch the SLAM Toolbox.
-```bash
-# In a new terminal (ensure simulation is running)
-source install/setup.bash
-ros2 launch slam slam.launch.py sim:=true
-```
-*Drive the robot around the environment (using teleop or rviz) until the map is fully generated.*
+#### Phase 1: SLAM Mapping
+To map a new environment, run these commands in four separate terminals:
 
-To save the map:
-```bash
-ros2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/alpha_robot_stack/navigation/maps/my_new_map
-```
+1. **Start Simulation (Terminal 1)**:
+   ```bash
+   ros2 launch gazebo_simulations gazebo.launch.py
+   ```
+2. **Start SLAM (Terminal 2)**:
+   ```bash
+   ros2 launch slam slam.launch.py sim:=true
+   ```
+3. **Launch RViz for SLAM Visualization (Terminal 3)**:
+   ```bash
+   ros2 launch slam rviz_slam.launch.py sim:=true
+   ```
+4. **Drive the Robot (Terminal 4)**:
+   ```bash
+   ros2 run teleop_twist_keyboard teleop_twist_keyboard
+   ```
+*(After exploring the environment, use the RViz SLAM Toolbox panel to serialize and save your map!)*
 
-## 4. Navigation (Nav2)
-To autonomously navigate the robot using a pre-saved map:
-```bash
-# In a new terminal (ensure simulation is running)
-source install/setup.bash
-ros2 launch navigation navigation.launch.py sim:=true
-```
-*Use the "2D Pose Estimate" tool in RViz to initialize the robot's location, then use the "Nav2 Goal" tool to command the robot to drive.*
+#### Phase 2: Navigation
+Once you have saved a map, you can use the Navigation stack to autonomously move the robot.
+
+1. **Start Simulation (Terminal 1)**:
+   ```bash
+   ros2 launch gazebo_simulations gazebo.launch.py
+   ```
+2. **Start Navigation (Terminal 2)**:
+   ```bash
+   ros2 launch navigation navigation.launch.py sim:=true map:=your_map_name
+   ```
+3. **Launch RViz for Navigation (Terminal 3)**:
+   ```bash
+   ros2 launch navigation rviz_navigation.launch.py sim:=true
+   ```
+*(Use the "2D Pose Estimate" tool in RViz to tell the robot where it is on the map, then use "2D Nav Goal" to tell it where to drive!)*
