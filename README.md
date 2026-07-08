@@ -36,8 +36,22 @@ source install/setup.bash
 
 ## Execution Flow for Simulation
 
-#### Phase 1: SLAM Mapping
-To map a new environment, run these commands in four separate terminals:
+#### Phase 1: Verify Robot Description (URDF)
+Check that the robot's physical model, links, and joints are rendering correctly in RViz before launching the physics engine.
+```bash
+ros2 launch alpha_description_new robot_description.launch.py
+```
+*(You should see the Alpha robot appear in RViz. Close RViz before proceeding to Phase 2).*
+
+#### Phase 2: Verify Gazebo Simulation
+Check that Gazebo Harmonic launches correctly and the Alpha robot spawns inside the 3D warehouse environment.
+```bash
+ros2 launch gazebo_simulations gazebo.launch.py
+```
+*(If everything looks correct, you can leave this running for Phase 3, or close it and start fresh).*
+
+#### Phase 3: SLAM Mapping
+To map a new environment, run these commands in three separate terminals:
 
 1. **Start Simulation (Terminal 1)**:
    ```bash
@@ -51,13 +65,12 @@ To map a new environment, run these commands in four separate terminals:
    ```bash
    ros2 launch slam rviz_slam.launch.py sim:=true
    ```
-4. **Drive the Robot (Terminal 4)**:
-   ```bash
-   ros2 run teleop_twist_keyboard teleop_twist_keyboard
-   ```
-*(After exploring the environment, use the RViz SLAM Toolbox panel to serialize and save your map!)*
 
-#### Phase 2: Navigation
+**How to Map and Save:**
+* **Drive the Robot:** Use the built-in Gazebo teleop to move the Alpha robot around the warehouse. Click the orange "Play" button in Gazebo if physics are paused.
+* **Save the Map:** Once the map is fully generated in RViz, click the **"Panels"** menu at the top of RViz, select **"Add New Panel"**, and add the **"SLAMToolboxPlugin"**. In that panel, type a name for your map (e.g., `my_warehouse_map`) and click **"Save Map"** or **"Serialize Map"**.
+
+#### Phase 4: Navigation
 Once you have saved a map, you can use the Navigation stack to autonomously move the robot.
 
 1. **Start Simulation (Terminal 1)**:
@@ -65,6 +78,7 @@ Once you have saved a map, you can use the Navigation stack to autonomously move
    ros2 launch gazebo_simulations gazebo.launch.py
    ```
 2. **Start Navigation (Terminal 2)**:
+   *(Make sure to replace `your_map_name` with the EXACT name of the map you saved in the SLAM Toolbox plugin during Phase 3!)*
    ```bash
    ros2 launch navigation navigation.launch.py sim:=true map:=your_map_name
    ```
@@ -72,4 +86,4 @@ Once you have saved a map, you can use the Navigation stack to autonomously move
    ```bash
    ros2 launch navigation rviz_navigation.launch.py sim:=true
    ```
-*(Use the "2D Pose Estimate" tool in RViz to tell the robot where it is on the map, then use "2D Nav Goal" to tell it where to drive!)*
+*(Use the "2D Pose Estimate" tool in the top bar of RViz to tell the robot where it is on the map. Then, use the "2D Nav Goal" tool to command the robot to drive!)*
