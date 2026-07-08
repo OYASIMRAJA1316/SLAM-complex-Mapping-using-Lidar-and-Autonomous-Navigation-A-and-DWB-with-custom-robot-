@@ -31,7 +31,7 @@ def launch_setup(context):
         PythonLaunchDescriptionSource(os.path.join(navigation_package_path, 'launch/include/bringup.launch.py')),
         launch_arguments={
             'use_sim_time': use_sim_time,
-            'map': os.path.expanduser('~/ros2_ws/src/src/slam/maps/' + map_name + '.yaml'),
+            'map': os.path.expanduser('~/ros2_ws/src/slam/maps/' + map_name + '.yaml'),
             'params_file': os.path.join(navigation_package_path, 'config', 'nav2_params.yaml'),
             'namespace': robot_name,
             'use_namespace': use_namespace,

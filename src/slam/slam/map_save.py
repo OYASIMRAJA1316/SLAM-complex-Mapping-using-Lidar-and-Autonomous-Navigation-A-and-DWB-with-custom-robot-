@@ -26,7 +26,7 @@ class MapSaveNode(Node):
         if not map_name:
             map_name = "map"
         self.get_logger().info('\033[1;32m%s\033[0m' % f"Saving map as: {map_name}")
-        save_dir = os.path.expanduser('~/ros2_ws/src/src/slam/maps')
+        save_dir = os.path.expanduser('~/ros2_ws/src/slam/maps')
         os.makedirs(save_dir, exist_ok=True)
         os.system(f'cd {save_dir} && ros2 run nav2_map_server map_saver_cli -f "{map_name}" --ros-args -p map_subscribe_transient_local:=true')
         response.result = 0
