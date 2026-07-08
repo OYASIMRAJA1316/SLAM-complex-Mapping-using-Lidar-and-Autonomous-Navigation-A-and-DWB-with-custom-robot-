@@ -8,8 +8,8 @@ This repository contains the complete ROS 2 Jazzy software stack for the custom-
 - `slam`: SLAM Toolbox integration for 2D map generation.
 - `navigation`: Nav2 stack configurations, costmaps, and planners for autonomous point-to-point navigation.
 
-## Repository Structure
-#Mapping Demo
+## Demo Videos
+# Mapping Demo
 
 
 https://github.com/user-attachments/assets/c176a1ce-d326-43d0-adbb-b17d9784e069
